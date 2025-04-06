@@ -6,19 +6,26 @@ public abstract class OS {
   private static final Logger logger = Logger.getLogger(OS.class.getName());
   private OS() {}
 
-  private static final String OS = System.getProperty("os.name").toLowerCase();
-
-  public static boolean isWindows() {
-    return OS.contains("win");
+    public static boolean isWindows() {
+      return getOsName().contains("win");
   }
 
   public static boolean isMac() {
-    return OS.contains("mac");
+      return getOsName().contains("mac");
   }
 
   public static boolean isLinux() {
-    return OS.contains("linux") || OS.contains("nix") || OS.contains("nux") || OS.contains("aix");
+      return getOsName().contains("nix") || getOsName().contains("nux");
   }
+
+  private static String getOsName() {
+    String os = System.getProperty("os.name");
+    return os != null ? os.toLowerCase() : "";
+  }
+
+    public static String getArchitecture() {
+        return System.getProperty("os.arch");
+    }
 
   public static void cdDirectory(String path){
     try {
@@ -70,5 +77,4 @@ public abstract class OS {
       }
 
   }
-
 }

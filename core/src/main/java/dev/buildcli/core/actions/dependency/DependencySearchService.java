@@ -1,7 +1,6 @@
 package dev.buildcli.core.actions.dependency;
 
 import com.google.gson.*;
-import dev.buildcli.core.model.Dependency;
 
 import java.net.URI;
 import java.net.URLEncoder;
